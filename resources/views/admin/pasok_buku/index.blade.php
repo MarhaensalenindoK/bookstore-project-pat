@@ -6,11 +6,15 @@
         <div class="controls">
             <form method="post" class=" myform form-group form-inline">
                 <label>Periode :</label>
-                <input type="text" name="cmbTglAwal" id="tanggal" class="tcal form-control tcalInput" placeholder="YY-MM-DD">
+                <select id="tanggal" class="form-select">
+                    @foreach ($dates as $date)
+                        <option value="{{ $date }}">{{ $date }}</option>
+                    @endforeach
+                </select>
                 <br>
                 <button type="button" name="btnTampil" class="form-group btn btn-info" onclick="getFilterYear()">Tampilkan</button>
-                <button type="button" name="refresh" class="form-group btn btn-primary">Refresh</button>
-                <a target="_blank" class="btn btn-success" href="laporan/lap_filter_tgl_penjualan.php?tglin=2021-06-01&amp;tglout=2021-06-13" role="button">Cetak</a>
+                <button type="button" name="refresh" class="form-group btn btn-primary" onclick="getPasok()">Refresh</button>
+                <a target="_blank" class="btn btn-success" href="#" role="button">Cetak</a>
             </form>
         </div>
     </div>

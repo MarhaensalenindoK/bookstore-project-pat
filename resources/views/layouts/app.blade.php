@@ -33,7 +33,7 @@
                         {{ Auth::user()->level }}
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Change Password</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/update-password')}}">Change Password</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -59,7 +59,7 @@
                         Tambah
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Input Pasok Buku</a></li>
+                            <li><a class="dropdown-item" href="{{ url(Auth::user()->level.'/input-pasok-buku') }}">Input Pasok Buku</a></li>
                         </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -67,10 +67,10 @@
                         Laporan
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Semua Data Buku</a></li>
-                            <li><a class="dropdown-item" href="#">Filter Penulis Buku</a></li>
-                            <li><a class="dropdown-item" href="#">Buku yang Sering Terjual</a></li>
-                            <li><a class="dropdown-item" href="#">Buku yang Tidak Pernah Terjual</a></li>
+                            <li><a class="dropdown-item" href="{{url(Auth::user()->level.'/books')}}">Semua Data Buku</a></li>
+                            <li><a class="dropdown-item" href="{{url(Auth::user()->level.'/books-by-writer')}}">Filter Penulis Buku</a></li>
+                            <li><a class="dropdown-item" href="{{url(Auth::user()->level.'/popular-books')}}">Buku yang Sering Terjual</a></li>
+                            <li><a class="dropdown-item" href="{{url(Auth::user()->level.'/unpopular-books')}}">Buku yang Tidak Pernah Terjual</a></li>
                             <li><a class="dropdown-item" href="{{url(Auth::user()->level.'/pasok-buku')}}">Pasok Buku</a></li>
                             <li><a class="dropdown-item" href="{{url(Auth::user()->level.'/filter-pasok-buku')}}">Filter Pasok Buku</a></li>
                         </ul>
