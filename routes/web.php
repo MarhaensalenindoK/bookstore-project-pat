@@ -52,9 +52,17 @@ Route::group(['middleware' => ['auth']],function(){
             Route::get('/popular-books', [Controllers\AdminController::class, 'popularBooks']);
             Route::get('/unpopular-books', [Controllers\AdminController::class, 'unpopularBooks']);
             
+            Route::get('/cetak-pasok', [Controllers\AdminController::class, 'cetakPasok']);
+
             Route::get('/books', [Controllers\AdminController::class, 'allBooks']);
             Route::get('/books-by-writer', [Controllers\AdminController::class, 'booksByWriterForm']);
             Route::post('/books-by-writer', [Controllers\AdminController::class, 'booksByWriter']);
+
+            // Excel Only
+            Route::get('/export-all', [Controllers\AdminController::class, 'exportAll']);
+            Route::get('/export-popular', [Controllers\AdminController::class, 'exportPopular']);
+            Route::get('/export-unpopular', [Controllers\AdminController::class, 'exportUnpopular']);
+            Route::get('/export-supply', [Controllers\AdminController::class, 'exportSupply']);
         });
     });
     Route::group(['middleware' => ['check_login:kasir']],function(){

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exports\AllBooks;
+use App\Exports\AllSupply;
+use App\Exports\PopularBooks;
+use App\Exports\UnpopularBooks;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Book;
 use App\Models\Suply;
 use App\Models\Distributor;
@@ -302,5 +307,39 @@ class AdminController extends Controller
         $book->save();
 
         return back()->with('success', 'Data Berhasil Ditambahkan');
+    }
+
+    public function cetakPasok()
+    {
+        $suplys = Suply::orderBy('tanggal', 'desc')->get();
+        $dataSuply = [];
+        foreach($suplys as $suply){
+            $suply['distributor'] = $suply->distributor;
+            $suply['book'] = $suply->book;
+            array_push($dataSuply , $suply);
+        }
+        $myTime = Carbon::now()->format('Y-m-d');
+
+        return view('admin.pasok_buku.cetak', compact('dataSuply', 'myTime'));
+    }
+
+    public function exportAll()
+    {
+        return Excel::download(new AllBooks, 'semua-buku.xlsx');
+    }
+
+    public function exportPopular()
+    {
+        return Excel::download(new PopularBooks, 'buku-terjual.xlsx');
+    }
+
+    public function exportUnpopular()
+    {
+        return Excel::download(new UnpopularBooks, 'buku-tidak-terjual.xlsx');
+    }
+
+    public function exportSupply()
+    {
+        return Excel::download(new AllSupply, 'semua-pasok.xlsx');
     }
 }

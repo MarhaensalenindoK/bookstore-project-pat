@@ -11,14 +11,14 @@
     <title>Book Store Marhaenika</title>
   </head>
   <body onLoad="window.print()">
+    
     <div class="container">
         <div class="card text-center mt-5">
             <div class="card-header">
-                LAPORAN PASOK BERDASARKAN DISTRIBUTOR
+                LAPORAN SEMUA PASOK
             </div>
             <div class="card-body">
-                <h5 class="card-title">Distributor : {{ $distributor['nama_distributor'] }}</h5>
-                <p class="card-text">Tanggal Cetak : {{ $mytime }}</p>
+                <p class="card-text">Tanggal Cetak : {{ $myTime }}</p>
                 <div class="table-responsive">
                     <table class=" table table-hover table-bordered">
                         <thead>
@@ -46,10 +46,6 @@
                                 <td>{{ $book['tanggal'] }}</td>
                             </tr>
                             @endforeach
-                            <tr>
-                                <td><span class="text-bold font-weight-bold">Jumlah</span></td>
-                                <td colspan="8"><span class="text-bold font-weight-bold text-center">{{ $countBook }}</span></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

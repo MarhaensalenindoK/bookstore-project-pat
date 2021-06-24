@@ -7,8 +7,6 @@
     </div>
     <div class="card-body">
         <div class="d-flex">
-            <button class="btn btn-info m-1">Cetak</button>
-            <button class="btn btn-success m-1">Export</button>
             <a type="button" href="{{url('/admin/books-by-writer')}}" class="btn btn-primary m-1">Pilih Lainnya</a>
         </div>
         <div class="table-responsive">

@@ -14,7 +14,8 @@
                 <br>
                 <button type="button" name="btnTampil" class="form-group btn btn-info" onclick="getFilterYear()">Tampilkan</button>
                 <button type="button" name="refresh" class="form-group btn btn-primary" onclick="getPasok()">Refresh</button>
-                <a target="_blank" class="btn btn-success" href="#" role="button">Cetak</a>
+                <a target="_blank" class="btn btn-success" href="{{url('admin/cetak-pasok')}}" role="button">Cetak</a>
+                <a target="_blank" class="btn btn-success" href="{{url('admin/export-supply')}}" role="button">Export</a>
             </form>
         </div>
     </div>

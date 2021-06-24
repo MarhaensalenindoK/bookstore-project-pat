@@ -15,7 +15,6 @@
                         @csrf
                         <label class=" text-bold">Nama Distributor :</label>
                         <select class="form-select" aria-label="Default select example" name="distributor">
-                            <option selected>Pilih Distributor</option>
                             @foreach ($distributors as $distributor)
                                 <option value="{{ $distributor['id_distributor'] }}">{{ $distributor['nama_distributor'] }}</option>
                             @endforeach
