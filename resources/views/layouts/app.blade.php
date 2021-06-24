@@ -32,9 +32,16 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->level }}
                     </a>
+                    @if($userRole === 'admin')
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="{{ url('/update-password')}}">Change Password</a></li>
                         </ul>
+                    @elseif($userRole === 'manager')
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{{ url('/update-password')}}">Change Password</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/add-account')}}">Add Account</a></li>
+                        </ul>
+                    @endif
                     </li>
                 </ul>
             </div>

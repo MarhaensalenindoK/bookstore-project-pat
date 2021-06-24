@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth']],function(){
     });
 
     Route::group(['middleware' => ['check_login:admin,kasir,manager']], function(){
-        Route::get('/home', [HomeController::class, 'index'])->name('home');
+        Route::get('/home', [Controllers\HomeController::class, 'index']);
         Route::get('/update-password', [Controllers\PasswordController::class, 'changePassword'])->name('update-password');
         Route::patch('/update-password', [Controllers\PasswordController::class, 'updatePassword'])->name('update-password');
     });
